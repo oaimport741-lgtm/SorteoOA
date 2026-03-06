@@ -519,3 +519,46 @@ border-bottom:none;
 nav.activo{
 display:flex;
 }
+@media (max-width:768px){
+
+#formularioDatos .fila{
+flex-direction:column;
+}
+
+.botones{
+flex-direction:column;
+}
+
+}
+
+@media (max-width:768px){
+
+#formularioDatos{
+width:100%;
+padding:0 10px;
+}
+
+#formularioDatos input{
+width:100%;
+font-size:16px;
+padding:16px;
+}
+
+#formularioDatos .fila{
+flex-direction:column;
+gap:12px;
+}
+
+.botones{
+flex-direction:column;
+gap:12px;
+}
+
+#agregarCodigo,
+button[type="submit"]{
+width:100%;
+padding:16px;
+font-size:16px;
+}
+
+}
