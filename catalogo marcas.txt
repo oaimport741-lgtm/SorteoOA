@@ -1,0 +1,25 @@
+toffano		marca1	https://www.oaimport.com.py/2024/07/02/catalogo-toffano-2023/
+sun Delight	marca2	https://www.oaimport.com.py/2024/07/02/catalogo-sun-delight-2023/
+stella d oro	marca3	https://www.oaimport.com.py/2024/11/26/catalogo-stella-doro/
+Sensaty		marca4	https://www.oaimport.com.py/2024/07/02/catalogo-sensaty-2023/
+Piqui tucho	marca5	https://www.oaimport.com.py/2024/07/02/catalogo-piquitucho-2023/
+paloma		marca6	https://www.oaimport.com.py/2025/08/20/catalogo-paloma-2025/
+nucita		marca7	https://www.oaimport.com.py/2024/07/02/catalogo-nucita-2023/
+nantyr		marca8	https://www.oaimport.com.py/2024/07/02/catalogo-nantyr-2023/
+maxim		marca9	https://www.oaimport.com.py/2024/07/02/catalogo-maxim-2023/
+giopack		marca10	https://www.oaimport.com.py/2024/11/26/catalogo-giopack/
+gióca		marca11	https://www.oaimport.com.py/2024/07/02/catalogo-gioca-2023/
+fitcare		marca12	https://www.oaimport.com.py/2024/07/02/catalogo-fitcare-2023/
+feelclean	marca13	https://www.oaimport.com.py/2024/07/02/catalogo-feelclean-2023/
+envolv		marca14	https://www.oaimport.com.py/2024/07/02/catalogo-envolv-2023/
+Electricidad	marca15	https://www.oaimport.com.py/2024/11/26/catalogo-stella-doro-2/
+duetto		marca16	https://www.oaimport.com.py/2024/11/26/catalogo-duetto/
+curaprox	marca17	https://www.oaimport.com.py/2024/07/02/catalogo-curaprox-2023/
+cremer		marca18	https://www.oaimport.com.py/2025/04/30/catalogo-cremer-2025/
+comodin		marca19	https://www.oaimport.com.py/2024/11/26/catalogo-comodin/
+careful		marca20	https://www.oaimport.com.py/2024/07/02/catalogo-careful-2023/
+capricho super	marca21	https://www.oaimport.com.py/2025/05/06/catalogo-capricho-super-2025/
+capricho baby	marca22	https://www.oaimport.com.py/2024/07/02/capricho-baby-2023/
+bummis		marca23	https://www.oaimport.com.py/2024/07/02/catalogo-bummis-2023/
+
+	
