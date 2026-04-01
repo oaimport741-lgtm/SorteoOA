@@ -1,6 +1,12 @@
 const supabaseUrl = "https://lvxyphkarplslzwapmgq.supabase.co";
 const supabaseKey = "sb_publishable_TN-L5hSlTa-ZsRL55z-2KQ_q5ZVwErB";
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey, {
+  auth: {
+    persistSession: false,
+    autoRefreshToken: false,
+    detectSessionInUrl: false
+  }
+});
 
 const form = document.getElementById("formularioDatos");
 const agregarBtn = document.getElementById("agregarCodigo");
@@ -42,21 +48,25 @@ form.addEventListener("submit", async function (e) {
     codigo
   }));
 
-  const { error } = await supabase.from("participantes").insert(registros);
+  try {
+    const { error } = await supabase.from("participantes").insert(registros);
 
-  loader.style.display = "none";
+    if (error) {
+      throw error;
+    }
 
-  if (error) {
-    mensaje.innerText = "Error al guardar los datos";
-    console.error(error);
-    return;
+    form.reset();
+    contenedorCodigos.innerHTML =
+      '<input type="text" name="codigo[]" placeholder="Codigo de Barras del Producto" required>';
+
+    mensaje.innerText = "Datos enviados correctamente";
+  } catch (error) {
+    const detalle = error && error.message ? error.message : "desconocido";
+    mensaje.innerText = `Error al guardar: ${detalle}`;
+    console.error("Error de Supabase:", error);
+  } finally {
+    loader.style.display = "none";
   }
-
-  form.reset();
-  contenedorCodigos.innerHTML =
-    '<input type="text" name="codigo[]" placeholder="Codigo de Barras del Producto" required>';
-
-  mensaje.innerText = "Datos enviados correctamente";
 });
 
 const toggle = document.getElementById("menuToggle");
