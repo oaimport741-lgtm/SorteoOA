@@ -1,64 +1,67 @@
-const form = document.getElementById("formularioDatos")
-const agregarBtn = document.getElementById("agregarCodigo")
-const contenedorCodigos = document.getElementById("codigos")
-const loader = document.getElementById("loader")
+const supabaseUrl = "https://lvxyphkarplslzwapmgq.supabase.co";
+const supabaseKey = "sb_publishable_TN-L5hSlTa-ZsRL55z-2KQ_q5ZVwErB";
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+const form = document.getElementById("formularioDatos");
+const agregarBtn = document.getElementById("agregarCodigo");
+const contenedorCodigos = document.getElementById("codigos");
+const loader = document.getElementById("loader");
+const mensaje = document.getElementById("mensaje");
 
 agregarBtn.addEventListener("click", () => {
+  const input = document.createElement("input");
+  input.type = "text";
+  input.name = "codigo[]";
+  input.placeholder = "Codigo de Barras del Producto";
+  input.required = true;
+  contenedorCodigos.appendChild(input);
+});
 
-const input = document.createElement("input")
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-input.type = "text"
-input.name = "codigo[]"
-input.placeholder = "Código de Barras del Producto"
-input.required = true
+  loader.style.display = "block";
+  mensaje.innerText = "";
 
-contenedorCodigos.appendChild(input)
+  const cedula = form.cedula.value.trim();
+  const nombre = form.nombre.value.trim();
+  const telefono = form.telefono.value.trim();
+  const factura = form.factura.value.trim();
 
-})
+  const codigos = Array.from(
+    document.querySelectorAll("input[name='codigo[]']")
+  )
+    .map((input) => input.value.trim())
+    .filter(Boolean);
 
-form.addEventListener("submit", async function(e){
+  const registros = codigos.map((codigo) => ({
+    cedula,
+    nombre,
+    telefono,
+    factura,
+    codigo
+  }));
 
-e.preventDefault()
+  const { error } = await supabase.from("participantes").insert(registros);
 
-loader.style.display = "block"
+  loader.style.display = "none";
 
-const cedula = form.cedula.value
-const nombre = form.nombre.value
-const telefono = form.telefono.value
-const factura = form.factura.value
+  if (error) {
+    mensaje.innerText = "Error al guardar los datos";
+    console.error(error);
+    return;
+  }
 
-const codigos = document.querySelectorAll("input[name='codigo[]']")
+  form.reset();
+  contenedorCodigos.innerHTML =
+    '<input type="text" name="codigo[]" placeholder="Codigo de Barras del Producto" required>';
 
-for (let codigo of codigos){
+  mensaje.innerText = "Datos enviados correctamente";
+});
 
-const data = new FormData()
+const toggle = document.getElementById("menuToggle");
+const menu = document.getElementById("menu");
 
-data.append("cedula", cedula)
-data.append("nombre", nombre)
-data.append("telefono", telefono)
-data.append("factura", factura)
-data.append("codigo", codigo.value)
-
-await fetch("https://script.google.com/macros/s/AKfycbwox13VOVAKANtK1roxIyKtFKFDmP51udX6ZP6Zot_JnKll-p9UIWrwe8elgdDWvw-NWg/exec",{
-method:"POST",
-body:data
-})
-
-}
-
-form.reset()
-
-contenedorCodigos.innerHTML = '<input type="text" name="codigo[]" placeholder="Código de Barras del Producto" required>'
-
-loader.style.display = "none"
-
-document.getElementById("mensaje").innerText = "Datos enviados correctamente"
-
-})
-
-const toggle = document.getElementById("menuToggle")
-const menu = document.getElementById("menu")
-
-toggle.addEventListener("click", ()=>{
-menu.classList.toggle("activo")
-})
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("activo");
+});
