@@ -1,5 +1,5 @@
 const supabaseUrl = "https://lvxyphkarplslzwapmqg.supabase.co/participantes";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2eHlwaGthcnBsc2x6d2FwbXFnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNTE4NDMsImV4cCI6MjA5MDYyNzg0M30.U5HVXgJJrEiDtIXzMU87bi4GCfRUMwOmztS_NSzrNtg";
+const supabaseKey = "sb_publishable_TN-L5hSlTa-ZsRL55z-2KQ_q5ZVwErB";
 const form = document.getElementById("formularioDatos");
 const agregarBtn = document.getElementById("agregarCodigo");
 const contenedorCodigos = document.getElementById("codigos");
