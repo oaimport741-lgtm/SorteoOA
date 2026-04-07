@@ -1,4 +1,4 @@
-const supabaseUrl = "https://lvxyphkarplslzwapmqg.supabase.co/participantes";
+const supabaseUrl = "https://lvxyphkarplslzwapmqg.supabase.co";
 const supabaseKey = "sb_publishable_TN-L5hSlTa-ZsRL55z-2KQ_q5ZVwErB";
 const form = document.getElementById("formularioDatos");
 const agregarBtn = document.getElementById("agregarCodigo");
